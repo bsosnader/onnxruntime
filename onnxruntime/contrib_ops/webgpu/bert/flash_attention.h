@@ -92,7 +92,7 @@ class FlashAttentionProgram final : public Program<FlashAttentionProgram> {
         q_BNSH_(q_BNSH),
         use_seqlen_k_(use_seqlen_k),
         has_head_sink_(has_head_sink) {
-    if (is_apple) {
+    if (true || is_apple) {
       // On Apple GPUs, use an optimized loop-based path with dynamic max_k_step.
       // Compute max_k_step from shared memory budget: k_tile + v_tile = 2 * element_size * head_size * max_k_step
       const int element_size = is_fp16 ? 2 : 4;
